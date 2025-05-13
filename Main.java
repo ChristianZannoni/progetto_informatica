@@ -1,5 +1,5 @@
 package main;
-
+import gestori.*;
 import Form.MainForm;
 
 /**
@@ -13,7 +13,9 @@ public class Main {
      */
     public static void main(String[] args) {
         MainForm m = new MainForm();
-        m.setVisible(true);
+        //m.setVisible(true);
+        GestoreCorsi c = new GestoreCorsi();
+        c.leggiFile("corsi.csv");
 
     }
 

@@ -9,7 +9,7 @@ public class Studente {
     private String matricola, nome, cognome;
     private Corso corso;
 
-    public Studente(String matricola, String nome, String cognome, Corso cr) {
+    public Studente(String matricola, String nome, String cognome) {
 
         if (matricola.equals("")) {
             throw new IllegalArgumentException();
@@ -22,11 +22,12 @@ public class Studente {
         if (cognome.equals("")) {
             throw new IllegalArgumentException();
         }
+        
 
         this.matricola = matricola;
         this.nome = nome;
         this.cognome = cognome;
-        this.corso = cr;
+        
     }
 
     public void setMatricola(String matricola) {
@@ -43,6 +44,7 @@ public class Studente {
 
     public void setCorso(Corso corso) {
         this.corso = corso;
+        
     }
 
     public String getMatricola() {
@@ -60,5 +62,5 @@ public class Studente {
     public Corso getCorso() {
         return corso;
     }
-
+    
 }

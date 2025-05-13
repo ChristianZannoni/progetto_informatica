@@ -14,7 +14,11 @@ public class Corso {
         this.nome = nome;
         this.durata = durata;
     }
-
+    public void setDocente(Docente d){
+        d.setCorso(this);
+        this.d = d;
+        
+    }
     public String getCodice() {
         return codice;
     }
@@ -37,6 +41,11 @@ public class Corso {
 
     public void setDurata(int durata) {
         this.durata = durata;
+    }
+
+    @Override
+    public String toString() {
+        return ""+ codice + ";" + nome + ";" + durata + ";" + d ;
     }
 
 }
