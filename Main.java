@@ -1,7 +1,7 @@
 package main;
 import gestori.*;
 import Form.MainForm;
-
+import java.util.*;
 /**
  *
  * @author andreinm
@@ -16,6 +16,9 @@ public class Main {
         //m.setVisible(true);
         GestoreCorsi c = new GestoreCorsi();
         c.leggiFile("corsi.csv");
+        ArrayList a = c.getCorsi();
+        System.out.println(a);
+        
 
     }
 
