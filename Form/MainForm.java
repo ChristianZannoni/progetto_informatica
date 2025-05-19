@@ -4,15 +4,15 @@
  */
 package Form;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author andreinm
  */
 public class MainForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainForm
-     */
+
     public MainForm() {
         initComponents();
     }
@@ -26,60 +26,60 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        CorsiButton = new javax.swing.JButton();
+        DisciplineButton = new javax.swing.JButton();
+        DocentiButton = new javax.swing.JButton();
+        StudentiButton = new javax.swing.JButton();
+        AppelliButton = new javax.swing.JButton();
+        Close = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
-        jMenu = new javax.swing.JMenu();
-        Corsi = new javax.swing.JMenuItem();
-        Discipline = new javax.swing.JMenuItem();
-        Docenti = new javax.swing.JMenuItem();
-        Studenti = new javax.swing.JMenuItem();
-        Appelli = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Corsi");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        CorsiButton.setText("Corsi");
+        CorsiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CorsiButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Discipline");
-
-        jButton3.setText("Docenti");
-
-        jButton4.setText("Appelli");
-
-        jButton5.setText("Studenti");
-
-        jMenu.setText("Menu");
-
-        Corsi.setText("Corsi");
-        Corsi.addActionListener(new java.awt.event.ActionListener() {
+        DisciplineButton.setText("Discipline");
+        DisciplineButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CorsiActionPerformed(evt);
+                DisciplineButtonActionPerformed(evt);
             }
         });
-        jMenu.add(Corsi);
 
-        Discipline.setText("Discipline");
-        jMenu.add(Discipline);
+        DocentiButton.setText("Docenti");
+        DocentiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocentiButtonActionPerformed(evt);
+            }
+        });
 
-        Docenti.setText("Docenti");
-        jMenu.add(Docenti);
+        StudentiButton.setText("Studenti");
+        StudentiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StudentiButtonActionPerformed(evt);
+            }
+        });
 
-        Studenti.setText("Studenti");
-        jMenu.add(Studenti);
+        AppelliButton.setText("Appelli");
+        AppelliButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AppelliButtonActionPerformed(evt);
+            }
+        });
 
-        Appelli.setText("Appelli");
-        jMenu.add(Appelli);
+        Close.setText("Chiudi Applicazione");
+        Close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseActionPerformed(evt);
+            }
+        });
 
-        jMenuBar.add(jMenu);
-
+        jLabel1.setText("Gestione Università - Andrein Davolio Zannoni");
         setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,45 +87,79 @@ public class MainForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
-                .addGap(38, 38, 38)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(23, 23, 23))
+                .addGap(30, 30, 30)
+                .addComponent(CorsiButton)
+                .addGap(65, 65, 65)
+                .addComponent(DisciplineButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(DocentiButton)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(StudentiButton)
+                        .addGap(81, 81, 81)
+                        .addComponent(AppelliButton)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Close)
+                        .addGap(19, 19, 19))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jButton5)
-                .addGap(33, 33, 33)
-                .addComponent(jButton4)
+                .addGap(74, 74, 74)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(79, 79, 79)
+                    .addComponent(CorsiButton)
+                    .addComponent(DisciplineButton)
+                    .addComponent(DocentiButton))
+                .addGap(86, 86, 86)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
-                .addContainerGap(87, Short.MAX_VALUE))
+                    .addComponent(StudentiButton)
+                    .addComponent(AppelliButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(Close)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CorsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorsiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CorsiActionPerformed
+    private void DisciplineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisciplineButtonActionPerformed
+        DisciplineForm d = new DisciplineForm(this, true);
+        d.setVisible(true);
+    }//GEN-LAST:event_DisciplineButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void CorsiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CorsiButtonActionPerformed
+        CorsiForm c = new CorsiForm(this, true);
+        c.setVisible(true);
+    }//GEN-LAST:event_CorsiButtonActionPerformed
+
+    private void DocentiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocentiButtonActionPerformed
+        DocentiForm doc = new DocentiForm(this, true);
+        doc.setVisible(true);
+    }//GEN-LAST:event_DocentiButtonActionPerformed
+
+    private void StudentiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StudentiButtonActionPerformed
+        StudentiForm s = new StudentiForm(this, true);
+        s.setVisible(true);
+    }//GEN-LAST:event_StudentiButtonActionPerformed
+
+    private void AppelliButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppelliButtonActionPerformed
+        AppelliForm a = new AppelliForm(this, true);
+        a.setVisible(true);
+    }//GEN-LAST:event_AppelliButtonActionPerformed
+
+    private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
+        dispose();
+    }//GEN-LAST:event_CloseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,7 +170,7 @@ public class MainForm extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-       
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -148,17 +182,13 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Appelli;
-    private javax.swing.JMenuItem Corsi;
-    private javax.swing.JMenuItem Discipline;
-    private javax.swing.JMenuItem Docenti;
-    private javax.swing.JMenuItem Studenti;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JMenu jMenu;
+    private javax.swing.JButton AppelliButton;
+    private javax.swing.JButton Close;
+    private javax.swing.JButton CorsiButton;
+    private javax.swing.JButton DisciplineButton;
+    private javax.swing.JButton DocentiButton;
+    private javax.swing.JButton StudentiButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar;
     // End of variables declaration//GEN-END:variables
 }
