@@ -47,7 +47,7 @@
                               <Component id="LabelDurata" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="Durata" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="78" max="32767" attributes="0"/>
                               <Component id="CreaCorso" min="-2" max="-2" attributes="0"/>
@@ -56,6 +56,11 @@
                   </Group>
               </Group>
               <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="errorLabel" min="-2" pref="119" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,7 +80,9 @@
                   <Component id="Nome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Durata" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="errorLabel" min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="125" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Exit" min="-2" max="-2" attributes="0"/>
@@ -97,6 +104,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Inserisci Corso"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreaCorsoActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -181,6 +191,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Durata"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="errorLabel">
     </Component>
   </SubComponents>
 </Form>

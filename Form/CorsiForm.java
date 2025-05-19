@@ -37,6 +37,7 @@ public class CorsiForm extends javax.swing.JDialog {
         LabelCodice = new javax.swing.JLabel();
         LabelNome = new javax.swing.JLabel();
         LabelDurata = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +49,11 @@ public class CorsiForm extends javax.swing.JDialog {
         });
 
         CreaCorso.setText("Inserisci Corso");
+        CreaCorso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreaCorsoActionPerformed(evt);
+            }
+        });
 
         Tabella.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,11 +126,15 @@ public class CorsiForm extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LabelDurata)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(Durata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(CreaCorso)))))
                 .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +150,9 @@ public class CorsiForm extends javax.swing.JDialog {
                     .addComponent(Codice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Durata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Exit)
@@ -160,6 +172,36 @@ public class CorsiForm extends javax.swing.JDialog {
     private void NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeActionPerformed
+
+    private void CreaCorsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreaCorsoActionPerformed
+        boolean valid = true;
+        
+        errorLabel.setText("");
+        
+        //codice
+        if(Codice.getText().trim().isEmpty()) {
+            valid = false;
+            
+
+
+        }
+        
+        //nome
+        if(Nome.getText().trim().isEmpty()) {
+            valid = false;
+            
+        }
+        
+        //durata
+        if(Durata.getText().trim().isEmpty()) {
+            valid = false;
+            
+        }
+        
+        if(!valid) {
+            errorLabel.setText("Inserire tutti i campi!");
+        }
+    }//GEN-LAST:event_CreaCorsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,6 +255,7 @@ public class CorsiForm extends javax.swing.JDialog {
     private javax.swing.JLabel LabelNome;
     private javax.swing.JTextField Nome;
     private javax.swing.JTable Tabella;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
