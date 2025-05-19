@@ -21,8 +21,7 @@ public class GestoreStudente {
     }
     public Studente getStudenteMatricola(String matricola){
         for(int i =0;i<arrStudente.size();i++){
-          if(matricola==arrStudente.get(i).getMatricola());
-          return arrStudente.get(i);
+          if(matricola==arrStudente.get(i).getMatricola())return arrStudente.get(i);
         }
         return null;
     }
@@ -70,3 +69,5 @@ public class GestoreStudente {
     }
     }
 }
+
+

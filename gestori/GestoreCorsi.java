@@ -14,6 +14,12 @@ public class GestoreCorsi {
     public GestoreCorsi() {
         this.arrCorsi = new ArrayList<>();
     }
+    public Corso getCorsoCodice(String codice){
+        for(Corso c : arrCorsi){
+            if(codice.equals(c.getCodice()))return c; 
+        }
+        return null;
+    }
     public boolean addCorso(Corso c){
         for(int i =0;i<arrCorsi.size();i++){
             Corso tmp = arrCorsi.get(i);
@@ -25,9 +31,6 @@ public class GestoreCorsi {
         this.arrCorsi.add(c);
         return true;
         
-    }
-    public void removeCorso(Corso c){
-        this.arrCorsi.remove(c);
     }
     public ArrayList<Corso> getCorsi(){
         return this.arrCorsi;
@@ -62,4 +65,5 @@ public class GestoreCorsi {
         //definisci 
     }
     }
+    
 }
