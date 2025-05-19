@@ -8,7 +8,8 @@ public class Corso {
 
     private String codice, nome;
     private int durata;
-   
+    private ArrayList<Disciplina> discipline = new ArrayList<>();
+    private ArrayList<Studente> studente = new ArrayList<>();
     
     public Corso(String codice, String nome, int durata) {
         this.codice = codice;
@@ -39,7 +40,12 @@ public class Corso {
     public void setDurata(int durata) {
         this.durata = durata;
     }
- 
+    public void addDisciplina(Disciplina d){
+        discipline.add(d);
+    }
+    public void addStudente(Studente s){
+        studente.add(s);
+    }
     @Override
     public String toString() {
         return ""+ codice + ";" + nome + ";" + durata + ";";

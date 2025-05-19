@@ -6,6 +6,7 @@ package main;
  */
 public class Docente {
     private String matricola,nome,cognome,codiceDisciplina;
+    private Disciplina d;
     
     //matricolaDocente;nome;cognome;codiceDisciplina
 
@@ -46,6 +47,14 @@ public class Docente {
 
     public void setCodiceDisciplina(String codiceDisciplina) {
         this.codiceDisciplina = codiceDisciplina;
+    }
+
+    public Disciplina getD() {
+        return d;
+    }
+
+    public void setD(Disciplina d) {
+        this.d = d;
     }
 
    
