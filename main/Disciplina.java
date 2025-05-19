@@ -8,8 +8,6 @@ public class Disciplina {
     private String Codice,nome;
     private int cfu;
     private String codiceCorso;
-    private Docente d;
-    private Corso corso;
     public Disciplina(String Codice, String nome, int cfu, String codiceCorso) {
         this.Codice = Codice;
         this.nome = nome;
@@ -49,26 +47,7 @@ public class Disciplina {
         this.codiceCorso = codiceCorso;
     }
 
-    public Docente getD() {
-        return d;
-    }
-
-    public void setD(Docente d)  {
-        this.d = d;
-        d.setDisciplina(this);
-        
-        
-    }
-    public void setCorso(Corso C){
-        
-        this.corso=C;
-        
-    }
-   
-    public Corso getCorso(){
-        return this.corso;
-    }
-    
+  
     
     
     

@@ -6,7 +6,6 @@ package main;
  */
 public class Docente {
     private String matricola,nome,cognome,codiceDisciplina;
-    private Disciplina c;
     
     //matricolaDocente;nome;cognome;codiceDisciplina
 
@@ -49,15 +48,7 @@ public class Docente {
         this.codiceDisciplina = codiceDisciplina;
     }
 
-    public Disciplina getDisciplina() {
-        return c;
-    }
-
-    public void setDisciplina(Disciplina c) {
-        this.c = c;
-        
-    }
-    
+   
     
     
 }

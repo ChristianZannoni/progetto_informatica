@@ -6,10 +6,9 @@ package main;
  */
 public class Studente {
 
-    private String matricola, nome, cognome;
-    private Corso corso;
+    private String matricola, nome, cognome, codiceCorso;
 
-    public Studente(String matricola, String nome, String cognome) {
+    public Studente(String matricola, String nome, String cognome, String codiceCorso) {
 
         if (matricola.equals("")) {
             throw new IllegalArgumentException();
@@ -27,7 +26,7 @@ public class Studente {
         this.matricola = matricola;
         this.nome = nome;
         this.cognome = cognome;
-        
+        this.codiceCorso = codiceCorso;
     }
 
     public void setMatricola(String matricola) {
@@ -42,10 +41,7 @@ public class Studente {
         this.cognome = cognome;
     }
 
-    public void setCorso(Corso corso) {
-        this.corso = corso;
-        
-    }
+  
 
     public String getMatricola() {
         return matricola;
@@ -59,8 +55,5 @@ public class Studente {
         return cognome;
     }
 
-    public Corso getCorso() {
-        return corso;
-    }
-    
+   
 }
