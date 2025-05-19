@@ -10,11 +10,19 @@ import java.util.*;
  */
 public class Appello {
     private String idAppello,data,codiceDisciplina;
-
+    private Disciplina d;
     public Appello(String idAppello, String data, String codiceDisciplina) {
         this.idAppello = idAppello;
         this.data = data;
         this.codiceDisciplina = codiceDisciplina;
+    }
+
+    public Disciplina getD() {
+        return d;
+    }
+
+    public void setD(Disciplina d) {
+        this.d = d;
     }
 
     public String getIdAppello() {
@@ -39,6 +47,11 @@ public class Appello {
 
     public void setCodiceDisciplina(String codiceDisciplina) {
         this.codiceDisciplina = codiceDisciplina;
+    }
+
+    @Override
+    public String toString() {
+        return ""+idAppello + ";" + data + ";" + codiceDisciplina + "\n";
     }
     
     

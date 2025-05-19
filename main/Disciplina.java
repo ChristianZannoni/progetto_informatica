@@ -68,6 +68,11 @@ public class Disciplina {
         this.d = d;
     }
 
+    @Override
+    public String toString() {
+        return ""+Codice + ";" + nome + ";" + cfu + ";" + codiceCorso + "\n";
+    }
+
   
     
     

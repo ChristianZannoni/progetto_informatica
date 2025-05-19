@@ -41,6 +41,14 @@ public class Studente {
         this.cognome = cognome;
     }
 
+    public String getCodiceCorso() {
+        return codiceCorso;
+    }
+
+    public void setCodiceCorso(String codiceCorso) {
+        this.codiceCorso = codiceCorso;
+    }
+
   
 
     public String getMatricola() {
@@ -53,6 +61,11 @@ public class Studente {
 
     public String getCognome() {
         return cognome;
+    }
+
+    @Override
+    public String toString() {
+        return "" + matricola + ";" + nome + ";" + cognome + ";" + codiceCorso + '\n';
     }
 
    

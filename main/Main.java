@@ -1,25 +1,67 @@
 package main;
-import gestori.*;
-import Form.MainForm;
-import java.util.*;
-/**
- *
- * @author andreinm
- */
+
+import gestori.Gestore;
+import java.util.Scanner;
+import main.*;
+
 public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        MainForm m = new MainForm();
-        //m.setVisible(true);
-        GestoreCorsi c = new GestoreCorsi();
-        c.leggiFile("corsi.csv");
-        ArrayList a = c.getCorsi();
-        System.out.println(a);
         
+        Gestore gestore = new Gestore();
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Sistema universitario avviato.");
+
+        // Stampa studenti
+        System.out.println("\n--- Studenti caricati ---");
+        for (Studente s : gestore.getStudenti()) {
+            System.out.println(s);
+        }
+
+        // Stampa corsi
+        System.out.println("\n--- Corsi disponibili ---");
+        for (Corso c : gestore.getCorsi()) {
+            System.out.println(c);
+        }
+
+        // Stampa discipline
+        System.out.println("\n--- Discipline ---");
+        for (Disciplina d : gestore.getDiscipline()) {
+            System.out.println(d);
+        }
+
+        // Stampa docenti
+        System.out.println("\n--- Docenti ---");
+        for (Docente d : gestore.getDocente()) {
+            System.out.println(d);
+        }
+
+        // Stampa appelli
+        System.out.println("\n--- Appelli ---");
+        for (Appello a : gestore.getAppelli()) {
+            System.out.println(a);
+        }
+
+        // Stampa iscrizioni e validità
+        System.out.println("\n--- Iscrizioni agli appelli ---");
+        for (iscrizioneAppello i : gestore.getIscrizioni()) {
+            boolean valido = gestore.appellovalido(i);
+            System.out.println(i + " -> Valida? " + (valido ? "Sì" : "No"));
+        }
+
+        // Esempio: aggiunta nuova iscrizione manuale (supponendo che id e matricola esistano)
+        System.out.print("\nVuoi provare ad aggiungere una nuova iscrizione a un appello? (s/n): ");
+        if (scanner.nextLine().equalsIgnoreCase("s")) {
+            System.out.print("ID appello: ");
+            String idAppello = scanner.nextLine();
+            System.out.print("Matricola studente: ");
+            String matricola = scanner.nextLine();
+
+            iscrizioneAppello nuovaIscrizione = new iscrizioneAppello(idAppello, matricola);
+            gestore.addIscrizione(nuovaIscrizione);
+            System.out.println("Iscrizione " + (gestore.appellovalido(nuovaIscrizione) ? "aggiunta" : "non valida"));
+        }
+
+        scanner.close();
     }
-
 }

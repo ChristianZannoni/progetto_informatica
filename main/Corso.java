@@ -46,6 +46,23 @@ public class Corso {
     public void addStudente(Studente s){
         studente.add(s);
     }
+
+    public ArrayList<Disciplina> getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(ArrayList<Disciplina> discipline) {
+        this.discipline = discipline;
+    }
+
+    public ArrayList<Studente> getStudente() {
+        return studente;
+    }
+
+    public void setStudente(ArrayList<Studente> studente) {
+        this.studente = studente;
+    }
+    
     @Override
     public String toString() {
         return ""+ codice + ";" + nome + ";" + durata + ";";

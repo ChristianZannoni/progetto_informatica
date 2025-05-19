@@ -57,6 +57,11 @@ public class Docente {
         this.d = d;
     }
 
+    @Override
+    public String toString() {
+        return ""+ matricola + ";" + nome + ";" + cognome + ";" + codiceDisciplina + '\n';
+    }
+
    
     
     
