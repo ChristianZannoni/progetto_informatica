@@ -14,8 +14,16 @@ public class GestoreCorsi {
     public GestoreCorsi() {
         this.arrCorsi = new ArrayList<>();
     }
-    public void addCorso(Corso c){
+    public boolean addCorso(Corso c){
+        for(int i =0;i<arrCorsi.size();i++){
+            Corso tmp = arrCorsi.get(i);
+            if(tmp==c || tmp.getNome() == c.getNome()||c.getCodice() == tmp.getCodice()){
+                return false;
+            }
+        }
+       
         this.arrCorsi.add(c);
+        return true;
         
     }
     public void removeCorso(Corso c){
@@ -26,6 +34,7 @@ public class GestoreCorsi {
     }
     //DA IMPLEMENTARE VISUALIZZA CORSI IN SEZIONE GRAFICA
     public void leggiFile(String nomefile){
+        arrCorsi.clear();
         try{
             BufferedReader br = new BufferedReader(new FileReader(nomefile));
             String line;
