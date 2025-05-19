@@ -37,8 +37,8 @@ public class DisciplineForm extends javax.swing.JDialog {
         codice = new javax.swing.JTextField();
         nome = new javax.swing.JTextField();
         cfu = new javax.swing.JTextField();
-        corso = new javax.swing.JTextField();
         insert = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,14 +86,14 @@ public class DisciplineForm extends javax.swing.JDialog {
 
         cfu.setText("CFU:");
 
-        corso.setText("Corso:");
-
         insert.setText("Inserisci");
         insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insertActionPerformed(evt);
             }
         });
+
+        jTextField1.setText("Corso:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +118,7 @@ public class DisciplineForm extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(corsoLabel)
-                            .addComponent(corso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -140,11 +140,12 @@ public class DisciplineForm extends javax.swing.JDialog {
                     .addComponent(cfuLabel)
                     .addComponent(corsoLabel))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(codice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cfu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(corso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cfu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(insert)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -220,10 +221,10 @@ public class DisciplineForm extends javax.swing.JDialog {
     private javax.swing.JLabel cfuLabel;
     private javax.swing.JTextField codice;
     private javax.swing.JLabel codiceLabel;
-    private javax.swing.JTextField corso;
     private javax.swing.JLabel corsoLabel;
     private javax.swing.JButton insert;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nome;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTable tabellaDiscipline;

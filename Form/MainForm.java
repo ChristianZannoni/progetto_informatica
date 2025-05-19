@@ -33,6 +33,7 @@ public class MainForm extends javax.swing.JFrame {
         AppelliButton = new javax.swing.JButton();
         Close = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +81,8 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Gestione Università - Andrein Davolio Zannoni");
+
+        jButton1.setText("Salva Modifiche");
         setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,6 +90,16 @@ public class MainForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(StudentiButton)
+                .addGap(81, 81, 81)
+                .addComponent(AppelliButton)
+                .addGap(89, 89, 89))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(CorsiButton)
                 .addGap(65, 65, 65)
@@ -94,21 +107,12 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(DocentiButton)
                 .addGap(30, 30, 30))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(StudentiButton)
-                        .addGap(81, 81, 81)
-                        .addComponent(AppelliButton)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Close)
-                        .addGap(19, 19, 19))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Close)
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +129,9 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(StudentiButton)
                     .addComponent(AppelliButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(Close)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Close)
+                    .addComponent(jButton1))
                 .addGap(19, 19, 19))
         );
 
@@ -188,6 +194,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton DisciplineButton;
     private javax.swing.JButton DocentiButton;
     private javax.swing.JButton StudentiButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar;
     // End of variables declaration//GEN-END:variables

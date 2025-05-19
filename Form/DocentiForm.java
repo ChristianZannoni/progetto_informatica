@@ -36,9 +36,9 @@ public class DocentiForm extends javax.swing.JDialog {
         nome = new javax.swing.JTextField();
         cognome = new javax.swing.JTextField();
         congomeLabel = new javax.swing.JLabel();
-        disciplina = new javax.swing.JTextField();
         disciplinaLabel = new javax.swing.JLabel();
         insert = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,11 +79,11 @@ public class DocentiForm extends javax.swing.JDialog {
 
         congomeLabel.setText("Cognome");
 
-        disciplina.setText("Disciplina:");
-
         disciplinaLabel.setText("Disciplina");
 
         insert.setText("Inserisci");
+
+        jTextField1.setText("Disciplina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,7 +106,7 @@ public class DocentiForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(disciplinaLabel)
-                    .addComponent(disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -132,7 +132,7 @@ public class DocentiForm extends javax.swing.JDialog {
                     .addComponent(matricola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cognome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(insert)
                 .addGap(18, 18, 18)
@@ -195,11 +195,11 @@ public class DocentiForm extends javax.swing.JDialog {
     private javax.swing.JButton Exit;
     private javax.swing.JTextField cognome;
     private javax.swing.JLabel congomeLabel;
-    private javax.swing.JTextField disciplina;
     private javax.swing.JLabel disciplinaLabel;
     private javax.swing.JButton insert;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel matrcolaLabel;
     private javax.swing.JTextField matricola;
     private javax.swing.JTextField nome;
