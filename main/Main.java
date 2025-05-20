@@ -3,10 +3,13 @@ package main;
 import gestori.Gestore;
 import java.util.Scanner;
 import main.*;
-
+import Form.MainForm;
 public class Main {
     public static void main(String[] args) {
-        
+        MainForm main = new MainForm();
+        main.setVisible(true);
+    }
+        /*
         Gestore gestore = new Gestore();
         Scanner scanner = new Scanner(System.in);
 
@@ -63,5 +66,5 @@ public class Main {
         }
 
         scanner.close();
-    }
+    }*/
 }
