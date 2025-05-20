@@ -54,12 +54,13 @@ private int indexloaded = 0;
         }
     }
     public void caricaFile(String nomeFile){
-        indexloaded = arrDiscipline.size();
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for(int i = this.indexloaded;i<arrDiscipline.size();i++){
                writer.append(arrDiscipline.get(i).toString()); 
                writer.newLine();
             }
+            indexloaded = arrDiscipline.size();
     }
         catch(Exception e){
             

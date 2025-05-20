@@ -63,6 +63,7 @@ public class GestoreStudente {
                writer.append(arrStudente.get(i).toString()); 
                writer.newLine();
             }
+            indexloaded = arrStudente.size();
     }
     catch(Exception e){
         //definisci 

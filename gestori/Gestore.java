@@ -168,6 +168,33 @@ public class Gestore {
     public ArrayList<iscrizioneAppello> getIscrizioni(){
         return iscrizioni.getIscrizioni();
     }
+   
+    public GestoreAppello getGestoreAppello() {
+        return appello;
+    }
+
+    public GestoreCorsi getGestoreCorsi() {
+        return corsi;
+    }
+
+    public GestoreDisciplina getGestoreDiscipline() {
+        return discipline;
+    }
+
+    public GestoreStudente getGestoreStudenti() {
+        return studenti;
+    }
+
+    public GestoreDocente getDocenti() {
+        return docenti;
+    }
+
+    public GestoriIscrizioniAppello getGestoreIscrizioni() {
+        return iscrizioni;
+    }
     
     
+    
+    
+        
 }

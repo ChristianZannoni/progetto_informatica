@@ -54,12 +54,13 @@ public class GestoreCorsi {
         }
     }
     public void caricaFile(String nomeFile){
-        indexloaded = arrCorsi.size();
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for(int i = this.indexloaded;i<arrCorsi.size();i++){
                writer.append(arrCorsi.get(i).toString()); 
                writer.newLine();
             }
+            indexloaded = arrCorsi.size();
     }
     catch(Exception e){
         //definisci 

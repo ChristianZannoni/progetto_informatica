@@ -45,12 +45,13 @@ public class GestoriIscrizioniAppello {
         }
     }
     public void caricaFile(String nomeFile){
-        indexloaded = arrIscrizioni.size();
+       
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for(int i = this.indexloaded;i<arrIscrizioni.size();i++){
                writer.append(arrIscrizioni.get(i).toString()); 
                writer.newLine();
             }
+             indexloaded = arrIscrizioni.size();
     }
     catch(Exception e){
         //definisci 

@@ -52,12 +52,13 @@ public class GestoreAppello {
         }
     }
     public void caricaFile(String nomeFile){
-        indexloaded = arrAppelli.size();
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for(int i = this.indexloaded;i<arrAppelli.size();i++){
                writer.append(arrAppelli.get(i).toString()); 
                writer.newLine();
             }
+            indexloaded = arrAppelli.size();
     }
     catch(Exception e){
         //definisci 

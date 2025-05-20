@@ -50,12 +50,13 @@ public class GestoreDocente {
         }
     }
     public void caricaFile(String nomeFile){
-        indexloaded = arrDocenti.size();
+        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for(int i = this.indexloaded;i<arrDocenti.size();i++){
                writer.append(arrDocenti.get(i).toString()); 
                writer.newLine();
             }
+            indexloaded = arrDocenti.size();
     }
     catch(Exception e){
         //definisci 
