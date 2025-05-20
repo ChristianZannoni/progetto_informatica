@@ -23,24 +23,23 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="400" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="dataInput" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdAppello" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="disciplinaInput" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Data" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <Component id="docenteInput" min="-2" max="-2" attributes="0"/>
+                  <Component id="Disciplina" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
@@ -52,6 +51,7 @@
                   </Group>
               </Group>
           </Group>
+          <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -67,9 +67,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dataInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="disciplinaInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="docenteInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="IdAppello" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Data" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Disciplina" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="creaAppello" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -102,32 +102,41 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="text" type="java.lang.String" value="IdAppello"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="IdAppello">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="IdAppello"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IdAppelloActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Data">
+      <Properties>
         <Property name="text" type="java.lang.String" value="Data"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DataActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="dataInput">
+    <Component class="javax.swing.JTextField" name="Disciplina">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data:"/>
+        <Property name="text" type="java.lang.String" value="disciplina"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="disciplinaInput">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Disciplina:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="docenteInput">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Docente:"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisciplinaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Disciplina"/>
+        <Property name="text" type="java.lang.String" value="Data"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Docente:"/>
+        <Property name="text" type="java.lang.String" value="Disciplina"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -140,20 +149,14 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                <Column editable="false" title="Title 4" type="java.lang.Object"/>
+              <Table columnCount="3" rowCount="4">
+                <Column editable="false" title="idAppello" type="java.lang.Object"/>
+                <Column editable="false" title="data" type="java.lang.Object"/>
+                <Column editable="false" title="Disciplina" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>

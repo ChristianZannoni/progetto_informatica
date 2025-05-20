@@ -3,19 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Form;
-
+import gestori.Gestore;
+import javax.swing.table.DefaultTableModel;
+import main.Corso;
+import main.Disciplina;
 /**
  *
  * @author davoliof
  */
 public class DisciplineForm extends javax.swing.JDialog {
-
+    Gestore g ;
     /**
      * Creates new form DialogForm
      */
     public DisciplineForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MainForm p = (MainForm) parent;
+        g = p.getGestore();
+        for(Disciplina c:g.getDiscipline()){
+            DefaultTableModel model = (DefaultTableModel) tabellaDiscipline.getModel();
+            model.addRow(new Object[]{c.getCodice(),c.getNome(),c.getCfu(),c.getCodiceCorso()});
+        }
     }
 
     /**
@@ -172,7 +181,7 @@ public class DisciplineForm extends javax.swing.JDialog {
         errorLabel.setText("");
         
         //codice
-        if(codice.getText().trim().isEmpty()) {
+        if(codice.getText().trim().isEmpty()||g.getGestoreDiscipline().getDisciplina(codice.getText())!=null) {
             valid = false;
 
         }
@@ -190,13 +199,17 @@ public class DisciplineForm extends javax.swing.JDialog {
         }
         
         //corso
-        if(corso.getText().trim().isEmpty()) {
+        if(corso.getText().trim().isEmpty()||g.getGestoreCorsi().getCorsoCodice(corso.getText())==null) {
             valid = false;
             
         }
         
         if(!valid) {
-            errorLabel.setText("Inserire tutti i campi!");
+            errorLabel.setText("Inserire tutti i campi correttamente!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) tabellaDiscipline.getModel();
+            model.addRow(new Object[]{codice.getText(),nome.getText(),cfu.getText(),corso.getText(),""});
+            g.addDisciplina(new Disciplina(codice.getText(),nome.getText(),Integer.parseInt(cfu.getText()),corso.getText()));
         }
     }//GEN-LAST:event_insertActionPerformed
 

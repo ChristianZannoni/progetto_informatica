@@ -1,7 +1,11 @@
 package Form;
 
 import javax.swing.table.DefaultTableModel;
-
+import gestori.Gestore;
+import main.Corso;
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -12,10 +16,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CorsiForm extends javax.swing.JDialog {
 
-
+    private Gestore g;
     public CorsiForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MainForm p = (MainForm) parent;
+        g = p.getGestore();
+        for(Corso c:g.getCorsi()){
+            DefaultTableModel model = (DefaultTableModel) Tabella.getModel();
+            model.addRow(new Object[]{c.getCodice(),c.getNome(),c.getDurata()," "});
+        }
+        
     }
 
     /**
@@ -80,7 +91,7 @@ public class CorsiForm extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(Tabella);
 
-        Codice.setText("Code:");
+        Codice.setText("code:");
         Codice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CodiceActionPerformed(evt);
@@ -95,6 +106,11 @@ public class CorsiForm extends javax.swing.JDialog {
         });
 
         Durata.setText("Durata:");
+        Durata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DurataActionPerformed(evt);
+            }
+        });
 
         LabelCodice.setText("Codice");
 
@@ -167,10 +183,11 @@ public class CorsiForm extends javax.swing.JDialog {
     }//GEN-LAST:event_ExitActionPerformed
 
     private void CodiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CodiceActionPerformed
+        Codice.setText("");
     }//GEN-LAST:event_CodiceActionPerformed
 
     private void NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeActionPerformed
-        // TODO add your handling code here:
+        Nome.setText("");
     }//GEN-LAST:event_NomeActionPerformed
 
     private void CreaCorsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreaCorsoActionPerformed
@@ -179,11 +196,12 @@ public class CorsiForm extends javax.swing.JDialog {
         errorLabel.setText("");
         
         //codice
-        if(Codice.getText().trim().isEmpty()) {
+        if(Codice.getText().trim().isEmpty()||g.getGestoreCorsi().getCorsoCodice(Codice.getText())!=null) {
             valid = false;
+           
             
-
-
+            
+            
         }
         
         //nome
@@ -199,9 +217,37 @@ public class CorsiForm extends javax.swing.JDialog {
         }
         
         if(!valid) {
-            errorLabel.setText("Inserire tutti i campi!");
+            errorLabel.setText("Inserire tutti i campi correttamente!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) Tabella.getModel();
+            int rowCount = model.getRowCount();
+            int columnCount = model.getColumnCount();
+            boolean controllo = false;
+            for (int i = 0; i < rowCount; i++) {
+                for (int j = 0; j < columnCount; j++) {
+                    Object value = model.getValueAt(i, j);
+                    if(j%3==0){
+                        if(Codice.getText()==value)controllo = true;
+                    }
+                   
+                    }
+                }
+            
+            if(!controllo){
+                model.addRow(new Object[]{Codice.getText(),Nome.getText(),Durata.getText()," "});
+              
+                g.addCorso(new Corso(Codice.getText(),Nome.getText(),Integer.parseInt(Durata.getText())));
+                
+            }
+           
+            
+            
         }
     }//GEN-LAST:event_CreaCorsoActionPerformed
+
+    private void DurataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DurataActionPerformed
+       Durata.setText("");
+    }//GEN-LAST:event_DurataActionPerformed
 
     /**
      * @param args the command line arguments

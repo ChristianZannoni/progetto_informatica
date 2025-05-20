@@ -5,16 +5,19 @@
 package Form;
 
 import javax.swing.table.DefaultTableModel;
-
+import gestori.Gestore;
 /**
  *
  * @author andreinm
  */
 public class MainForm extends javax.swing.JFrame {
-
-
+    private Gestore gestore = new Gestore();
+    
     public MainForm() {
         initComponents();
+    }
+    public Gestore getGestore(){
+        return gestore;
     }
 
     /**
@@ -83,6 +86,11 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setText("Gestione Università - Andrein Davolio Zannoni");
 
         jButton1.setText("Salva Modifiche");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,7 +173,12 @@ public class MainForm extends javax.swing.JFrame {
 
     private void CloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionPerformed
         dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_CloseActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    gestore.caricatutto();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

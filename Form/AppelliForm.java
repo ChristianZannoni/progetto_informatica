@@ -3,20 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Form;
-
+import gestori.Gestore;
+import javax.swing.table.DefaultTableModel;
+import main.Corso;
+import main.Disciplina;
+import main.Appello;
+import main.Docente;
 
 /**
  *
  * @author davoliof
  */
 public class AppelliForm extends javax.swing.JDialog {
-
+    Gestore g;
     /**
      * Creates new form AppelliForm
      */
     public AppelliForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MainForm p = (MainForm) parent;
+        g = p.getGestore();
+        for(Appello c:g.getAppelli()){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
+            model.addRow(new Object[]{c.getIdAppello(),c.getData(),c.getCodiceDisciplina()});
+        }
     }
 
     /**
@@ -31,9 +43,9 @@ public class AppelliForm extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
         creaAppello = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        dataInput = new javax.swing.JTextField();
-        disciplinaInput = new javax.swing.JTextField();
-        docenteInput = new javax.swing.JTextField();
+        IdAppello = new javax.swing.JTextField();
+        Data = new javax.swing.JTextField();
+        Disciplina = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -56,31 +68,46 @@ public class AppelliForm extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setText("Data");
+        jLabel1.setText("IdAppello");
 
-        dataInput.setText("Data:");
+        IdAppello.setText("IdAppello");
+        IdAppello.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IdAppelloActionPerformed(evt);
+            }
+        });
 
-        disciplinaInput.setText("Disciplina:");
+        Data.setText("Data");
+        Data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataActionPerformed(evt);
+            }
+        });
 
-        docenteInput.setText("Docente:");
+        Disciplina.setText("disciplina");
+        Disciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisciplinaActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Disciplina");
+        jLabel2.setText("Data");
 
-        jLabel3.setText("Docente:");
+        jLabel3.setText("Disciplina");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "idAppello", "data", "Disciplina"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -93,21 +120,20 @@ public class AppelliForm extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(dataInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IdAppello, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(disciplinaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(docenteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
@@ -115,6 +141,7 @@ public class AppelliForm extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(creaAppello)
                             .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,9 +154,9 @@ public class AppelliForm extends javax.swing.JDialog {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dataInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(disciplinaInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(docenteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IdAppello, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Disciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(creaAppello))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,28 +180,44 @@ public class AppelliForm extends javax.swing.JDialog {
         errorLabel.setText("");
         
         //data
-        if(dataInput.getText().trim().isEmpty()) {
+        if(IdAppello.getText().trim().isEmpty()||g.getGestoreAppello().getAppello(IdAppello.getText())!=null) {
             valid = false;
             
         }
         
         //disciplina
-        if(disciplinaInput.getText().trim().isEmpty()) {
+        if(Data.getText().trim().isEmpty()) {
             valid = false;
             
         }
         
         //docente
-        if(docenteInput.getText().trim().isEmpty()) {
+        if(Disciplina.getText().trim().isEmpty()||g.getGestoreDiscipline().getDisciplina(Disciplina.getText())==null) {
             valid = false;
             
         }
         
         if(!valid) {
             errorLabel.setText("Inserire tutti i campi!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{IdAppello.getText(),Data.getText(),Disciplina.getText()});
+            g.addAppello(new Appello(IdAppello.getText(),Data.getText(),Disciplina.getText()));
         }
         
     }//GEN-LAST:event_creaAppelloActionPerformed
+
+    private void IdAppelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdAppelloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IdAppelloActionPerformed
+
+    private void DisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisciplinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DisciplinaActionPerformed
+
+    private void DataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,10 +262,10 @@ public class AppelliForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Data;
+    private javax.swing.JTextField Disciplina;
+    private javax.swing.JTextField IdAppello;
     private javax.swing.JButton creaAppello;
-    private javax.swing.JTextField dataInput;
-    private javax.swing.JTextField disciplinaInput;
-    private javax.swing.JTextField docenteInput;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

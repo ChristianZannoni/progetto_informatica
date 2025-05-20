@@ -4,18 +4,29 @@
  */
 package Form;
 
+import gestori.Gestore;
+import javax.swing.table.DefaultTableModel;
+import main.Corso;
+import main.Disciplina;
+import main.Studente;
 /**
  *
  * @author davoliof
  */
 public class StudentiForm extends javax.swing.JDialog {
-
+    Gestore g;
     /**
      * Creates new form StudentiForm
      */
     public StudentiForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MainForm p = (MainForm) parent;
+        g = p.getGestore();
+        for(Studente c:g.getStudenti()){
+            DefaultTableModel model = (DefaultTableModel) tabella.getModel();
+            model.addRow(new Object[]{c.getMatricola(),c.getNome(),c.getCognome(),c.getCodiceCorso()});
+        }
     }
 
     /**
@@ -180,7 +191,7 @@ public class StudentiForm extends javax.swing.JDialog {
         errorLabel.setText("");
         
         //matricola
-        if(matricola.getText().trim().isEmpty()) {
+        if(matricola.getText().trim().isEmpty()||g.getGestoreStudenti().getStudenteMatricola(matricola.getText())!=null) {
             valid = false;
 
         }
@@ -198,13 +209,19 @@ public class StudentiForm extends javax.swing.JDialog {
         }
         
         //corso
-        if(corso.getText().trim().isEmpty()) {
+        if(corso.getText().trim().isEmpty()||g.getGestoreCorsi().getCorsoCodice(corso.getText())==null) {
             valid = false;
             
         }
         
         if(!valid) {
             errorLabel.setText("Inserire tutti i campi!");
+        }
+        else{
+            
+             DefaultTableModel model = (DefaultTableModel) tabella.getModel();
+            model.addRow(new Object[]{matricola.getText(),nome.getText(),cognome.getText(),corso.getText(),""});
+            g.addStudente(new Studente (matricola.getText(),nome.getText(),cognome.getText(),corso.getText()));
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

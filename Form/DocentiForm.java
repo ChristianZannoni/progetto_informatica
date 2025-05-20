@@ -3,19 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Form;
-
+import gestori.Gestore;
+import javax.swing.table.DefaultTableModel;
+import main.Corso;
+import main.Disciplina;
+import main.Docente;
 /**
  *
  * @author davoliof
  */
 public class DocentiForm extends javax.swing.JDialog {
-
+    Gestore g;
     /**
      * Creates new form DocentiForm
      */
     public DocentiForm(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        MainForm p = (MainForm) parent;
+        g = p.getGestore();
+        for(Docente c:g.getDocente()){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
+            model.addRow(new Object[]{c.getMatricola(),c.getNome(),c.getCognome(),c.getCodiceDisciplina()});
+        }
     }
 
     /**
@@ -164,7 +175,7 @@ public class DocentiForm extends javax.swing.JDialog {
         errorLabel.setText("");
         
         //matricola
-        if(matricola.getText().trim().isEmpty()) {
+        if(matricola.getText().trim().isEmpty()||g.getDocenti().getDocente(matricola.getText())!=null) {
             valid = false;
 
         }
@@ -182,13 +193,17 @@ public class DocentiForm extends javax.swing.JDialog {
         }
         
         //disciplina
-        if(disciplina.getText().trim().isEmpty()) {
+        if(disciplina.getText().trim().isEmpty()||g.getGestoreDiscipline().getDisciplina(disciplina.getText())==null) {
             valid = false;
             
         }
         
         if(!valid) {
-            errorLabel.setText("Inserire tutti i campi!");
+            errorLabel.setText("Inserire tutti i campi correttamente!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.addRow(new Object[]{matricola.getText(),nome.getText(),cognome.getText(),disciplina.getText(),""});
+            g.addDocente(new Docente(matricola.getText(),nome.getText(),cognome.getText(),disciplina.getText()));
         }
 
     }//GEN-LAST:event_insertActionPerformed
