@@ -6,6 +6,7 @@ package Form;
 
 import javax.swing.table.DefaultTableModel;
 import gestori.Gestore;
+import main.Version;
 /**
  *
  * @author andreinm
@@ -15,6 +16,7 @@ public class MainForm extends javax.swing.JFrame {
     
     public MainForm() {
         initComponents();
+        setTitle(Version.getFullVersion() + " - Andrein Davolio Zannoni");
     }
     public Gestore getGestore(){
         return gestore;
@@ -83,7 +85,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Gestione Università - Andrein Davolio Zannoni");
+        jLabel1.setText(Version.getAppName() + " - Andrein Davolio Zannoni - " + Version.getVersion());
 
         jButton1.setText("Salva Modifiche");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
