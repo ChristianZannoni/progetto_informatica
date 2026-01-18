@@ -4,7 +4,14 @@ package main;
  * Classe per gestire le informazioni sulla versione dell'applicazione
  * @author Sistema Gestione Università
  */
-public class Version {
+public final class Version {
+    
+    /**
+     * Costruttore privato per prevenire l'istanziazione
+     */
+    private Version() {
+        throw new AssertionError("Utility class - non istanziabile");
+    }
     private static final String VERSION = "1.0.0";
     private static final String APP_NAME = "Gestione Università";
     

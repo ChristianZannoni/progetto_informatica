@@ -85,7 +85,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Gestione Università - Andrein Davolio Zannoni - " + Version.getVersion());
+        jLabel1.setText(Version.getAppName() + " - Andrein Davolio Zannoni - " + Version.getVersion());
 
         jButton1.setText("Salva Modifiche");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
